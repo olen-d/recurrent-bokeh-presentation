@@ -1,11 +1,12 @@
 <script setup>
 const props = defineProps({
+  imagePath: String,
   post: Object
 })
 
 // TODO: Fix this later to pull the site url from .env or database configuration
 const getImageUri = filename => {
-  return `http://recurrentbokeh.local/assets/images/${filename}`
+  return `${props.imagePath}/${filename}`
 }
 </script>
 

@@ -1,5 +1,6 @@
 <script setup>
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+const imagePath = import.meta.env.VITE_IMAGE_PATH
 
 import { onMounted, ref } from 'vue'
 
@@ -38,6 +39,7 @@ onMounted(async () => {
   </div>
   <PostPanel
     v-if="!isLoading"
+    :imagePath="imagePath"
     :post="post"
   >
   </PostPanel>

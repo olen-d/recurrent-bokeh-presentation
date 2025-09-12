@@ -1,5 +1,7 @@
 <script setup>
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+const thumbnailPath = import.meta.env.VITE_THUMBNAIL_PATH
+const thumbnailPrefix = import.meta.env.VITE_THUMBNAIL_PREFIX
 
 import { ref, watch } from "vue"
 
@@ -12,9 +14,8 @@ const isLoading = ref(true)
 
 const route = useRoute()
 
-// TODO: Fix this later to pull the site url from .env or database configuration
 const getThumbImageUri = filename => {
-  return `http://recurrentbokeh.local/assets/thumbnails/thumb_${filename}`
+  return `${thumbnailPath}/${thumbnailPrefix}${filename}`
 }
 
 watch(

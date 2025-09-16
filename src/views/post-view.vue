@@ -6,6 +6,8 @@ import { ref, watch } from 'vue'
 
 import { useRoute } from 'vue-router'
 
+import '../assets/css/post-view.css'
+
 import PostPanel from '@/components/post-panel.vue'
 
 const props = defineProps({
@@ -68,16 +70,18 @@ watch(
 
 </script>
 <template>
-  <div v-if="slugPrev" class="previous-image">
-    <router-link :to="`/post/${slugPrev}`">Previous</router-link>
-  </div>
-  <PostPanel
-    v-if="!isLoading"
-    :imagePath="imagePath"
-    :post="post"
-  >
-  </PostPanel>
-  <div v-if="slugNext" class="next-image">
-    <router-link :to="`/post/${slugNext}`">Next</router-link>
+  <div class="post-view">
+    <div v-if="slugPrev" class="previous-image">
+      <router-link :to="`/post/${slugPrev}`"><div class="arrow-left"></div></router-link>
+    </div>
+    <PostPanel
+      v-if="!isLoading"
+      :imagePath="imagePath"
+      :post="post"
+    >
+    </PostPanel>
+    <div v-if="slugNext" class="next-image">
+      <router-link :to="`/post/${slugNext}`"><div class="arrow-right"></div></router-link>
+    </div>
   </div>
 </template>

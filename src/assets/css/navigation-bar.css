@@ -1,0 +1,89 @@
+.navigation-bar {
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-family: Tahoma, Geneva, sans-serif;
+  margin-bottom: 2rem;
+  padding: 0.8rem 0rem;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  justify-content: left;
+  list-style-type: none;
+  margin: 0rem;
+  padding: 0rem;
+  width: 100%;
+}
+
+.item {
+  margin: 0rem 2rem;
+}
+
+.item a {
+  border-radius: 0.5rem;
+  color: #666;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.item a:visited {
+  color: #666;
+  text-decoration: none;
+}
+
+.item a:focus {
+  background: #282828;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+
+}
+
+.item a:hover {
+  background: #282828;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Site title  */
+
+.site-title {
+  color: #bb0000;
+  font-family: 'Impact';
+  margin: 0.5rem 0.5rem 0.5rem 1rem;
+  text-transform: lowercase;
+}
+
+.site-title a {
+  border-radius:0.5rem;
+  color: #bb0000;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.site-title a:visited {
+  color: #bb0000;
+  text-decoration: none;
+}
+
+.site-title a:focus {
+  background: #111;
+  color: #ffff00;
+  text-decoration: none;
+  outline: none;
+}
+
+.site-title a:hover {
+  background: #111;
+  color: #ffff00;
+  text-decoration: none;
+}
+
+.site-title a:active {
+  background: #111;
+  color:#ffff00;
+  text-decoration: none;
+}

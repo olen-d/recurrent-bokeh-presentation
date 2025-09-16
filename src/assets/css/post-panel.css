@@ -1,0 +1,14 @@
+.post-panel {
+  background: #181818; 
+}
+
+.post-panel-headline {
+  font-weight: 400;
+  margin-top: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+.post-panel-headline a {
+  color: #ffff00;
+  text-decoration: none;
+}

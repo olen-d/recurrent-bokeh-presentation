@@ -1,0 +1,38 @@
+.post-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-right: 1.5rem solid #444;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+}
+
+.arrow-left:hover {
+  width: 0;
+  height: 0;
+  border-right: 1.5rem solid #fff;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid #444;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+}
+
+.arrow-right:hover {
+  width: 0;
+  height: 0;
+  border-left: 1.5rem solid #fff;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+}

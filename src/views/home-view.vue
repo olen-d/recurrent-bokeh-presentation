@@ -4,6 +4,8 @@ const imagePath = import.meta.env.VITE_IMAGE_PATH
 
 import { onMounted, ref } from 'vue'
 
+import '../assets/css/home-view.css'
+
 import PostPanel from '@/components/post-panel.vue'
 
 const post = ref({})
@@ -34,13 +36,18 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="previous-image">
-    <router-link :to="`/post/${slugPrev}`">Previous</router-link>
+  <div class="home-view">
+    <div class="previous-image">
+      <router-link :to="`/post/${slugPrev}`"><div class="arrow-left"></div></router-link>
+    </div>
+    <PostPanel
+      v-if="!isLoading"
+      :imagePath="imagePath"
+      :post="post"
+    >
+    </PostPanel>
+    <div class="spacer">
+      &nbsp;
+    </div>
   </div>
-  <PostPanel
-    v-if="!isLoading"
-    :imagePath="imagePath"
-    :post="post"
-  >
-  </PostPanel>
 </template>

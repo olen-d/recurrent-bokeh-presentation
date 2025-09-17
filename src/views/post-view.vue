@@ -83,5 +83,8 @@ watch(
     <div v-if="slugNext" class="next-image">
       <router-link :to="`/post/${slugNext}`"><div class="arrow-right"></div></router-link>
     </div>
+    <div v-if="!slugNext" class="next-image">
+      &nbsp;
+    </div>
   </div>
 </template>

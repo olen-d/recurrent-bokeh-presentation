@@ -1,0 +1,42 @@
+.card-generic {
+  width: 200px;
+  /* background-color: #222; */
+}
+
+.card-generic h2 {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.card-generic h2 a {
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.card-generic h2 a:visited {
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.card-generic h2 a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+
+.card-generic h2 a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.card-generic h2 a:active {
+  color:#ffffff;
+  text-decoration: none;
+}
+
+.meta {
+  color: #555544;
+  font-size: 0.9rem;
+}

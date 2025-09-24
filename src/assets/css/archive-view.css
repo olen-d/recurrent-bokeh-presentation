@@ -1,0 +1,46 @@
+.archive-view {
+  margin-top: 5rem;
+}
+
+.archive-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, min(200px));
+  column-gap: 2rem;
+  row-gap: 6rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.archive-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 5rem;
+}
+
+.archive-pagination a {
+  font-weight: 700;
+  color: #cc6600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.archive-pagination a:visited {
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.archive-pagination a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+
+.archive-pagination a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.archive-paginations a:active {
+  color:#ffffff;
+  text-decoration: none;
+}

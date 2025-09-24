@@ -23,9 +23,10 @@ const router = createRouter({
       }
     },
     {
-      path: '/archive',
+      path: '/archive/:direction?/:datetime?',
       name: 'archive',
       component: ArchiveView,
+      props: true,
       meta: {
         title: 'Archive'
       }

@@ -1,4 +1,5 @@
 <script setup>
+import AppFooter from './components/app-footer.vue';
 import NavigationBar from './components/navigation-bar.vue';
 
 import './assets/css/app.css'
@@ -12,6 +13,7 @@ const navigationMenu = [
   <div class="app">
     <NavigationBar :menu="navigationMenu"></NavigationBar>
     <RouterView />
+    <AppFooter />
   </div>
 </template>
 

@@ -8,7 +8,9 @@ import { useRoute } from 'vue-router'
 
 import '../assets/css/post-view.css'
 
+import ListLinks from '@/components/list-links.vue'
 import PostPanel from '@/components/post-panel.vue'
+import ThumbnailBar from '@/components/thumbnail-bar.vue'
 
 const props = defineProps({
   slug: String
@@ -87,4 +89,6 @@ watch(
       &nbsp;
     </div>
   </div>
+  <ListLinks></ListLinks>
+  <ThumbnailBar></ThumbnailBar>
 </template>

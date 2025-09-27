@@ -6,7 +6,9 @@ import { onMounted, ref } from 'vue'
 
 import '../assets/css/home-view.css'
 
+import ListLinks from '@/components/list-links.vue'
 import PostPanel from '@/components/post-panel.vue'
+import ThumbnailBar from '@/components/thumbnail-bar.vue'
 
 const post = ref({})
 const slugPrev = ref('')
@@ -50,4 +52,6 @@ onMounted(async () => {
       &nbsp;
     </div>
   </div>
+  <ListLinks></ListLinks>
+  <ThumbnailBar></ThumbnailBar>
 </template>

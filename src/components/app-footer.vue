@@ -3,12 +3,6 @@ import '../assets/css/app-footer.css'
 </script>
 <template>
   <div class="app-footer">
-    <div class="links-wraooer">
-      Aspherical
-    </div>
-    <div class="thumbnails-wrapper">
-      More Photographs
-    </div>
     <div class="information-wrapper">
       <p>
         &copy; 2005 - 2025 Salvador Diablo. All rights reserved. <br />

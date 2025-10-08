@@ -53,5 +53,9 @@ onMounted(async () => {
     </div>
   </div>
   <ListLinks></ListLinks>
-  <ThumbnailBar></ThumbnailBar>
+  <ThumbnailBar
+    :current-image="post"
+    :total-thumbnails=9
+  >
+  </ThumbnailBar>
 </template>

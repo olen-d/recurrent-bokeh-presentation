@@ -16,10 +16,10 @@ const props = defineProps({
   slug: String
 })
 
+const isLoading = ref(true)
 const post = ref({})
 const slugPrev = ref('')
 const slugNext = ref('')
-const isLoading = ref(true)
 
 const route = useRoute()
 
@@ -59,7 +59,6 @@ watch(
         } else {
           slugNext.value = false;
         }
-
         isLoading.value = false
       }
     } catch (error) {
@@ -90,5 +89,9 @@ watch(
     </div>
   </div>
   <ListLinks></ListLinks>
-  <ThumbnailBar></ThumbnailBar>
+  <ThumbnailBar
+    :current-image="post"
+    :total-thumbnails=9
+  >
+  </ThumbnailBar>
 </template>

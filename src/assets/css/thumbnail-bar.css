@@ -1,4 +1,48 @@
-.thumbnails-wrapper {
+.thumbnail-bar {
   background: #383838;
-  padding: 2rem 5rem 4rem 5rem;
+  container-type: inline-size;
+  container-name: thumbnail-bar;
+  padding: 2rem 0rem 5rem 0rem;
+}
+
+.thumbnail-bar p {
+  margin: 1rem 0rem 0rem 5rem;
+  font-size: 300%;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #3f3f3f;
+}
+
+.thumbnails-wrapper {
+  margin: -1rem 0rem 0rem 0rem;
+  padding-bottom: 0.6rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  column-gap: 2rem;
+  width: 100%;
+  overflow-x: hiden;
+}
+
+.thumbnail-wrapper:first-child {
+  margin-left: auto;
+}
+
+.thumbnail-wrapper:last-child {
+  margin-right: auto;
+}
+
+.activeThumb {
+  /*  */
+}
+
+@container thumbnail-bar (width <= 425px) {
+  .thumbnail-bar p {
+    color: #484848;
+    font-size: 150%;
+  }
+
+  .thumbnails-wrapper {
+    margin-top: -0.5rem ;
+  }
 }

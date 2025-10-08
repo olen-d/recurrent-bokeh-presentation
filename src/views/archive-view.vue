@@ -1,12 +1,13 @@
 <script setup>
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
 const thumbnailPageSize = import.meta.env.VITE_THUMBNAIL_PAGE_SIZE
-const thumbnailPath = import.meta.env.VITE_THUMBNAIL_PATH
-const thumbnailPrefix = import.meta.env.VITE_THUMBNAIL_PREFIX
+
 
 import { ref, watch } from "vue"
 
 import { useRoute } from 'vue-router'
+import { formatDateURI } from '@/composables/useDateURI'
+import { getThumbImageURI } from "@/composables/useThumbnailURI"
 
 import '../assets/css/archive-view.css'
 
@@ -25,26 +26,6 @@ const nextDatetime = ref('')
 const posts = ref([])
 
 const route = useRoute()
-
-const formatDateURI = (dateObj) => {
-  const dayRaw = dateObj.getDate()
-  const hoursRaw = dateObj.getHours()
-  const minutesRaw = dateObj.getMinutes()
-  const monthRaw = dateObj.getMonth() + 1
-  const secondsRaw = dateObj.getSeconds()
-  const day = dayRaw.toString().padStart(2, '0')
-  const hours = hoursRaw.toString().padStart(2, '0')
-  const minutes = minutesRaw.toString().padStart(2, '0')
-  const month = monthRaw.toString().padStart(2, '0')
-  const seconds = secondsRaw.toString().padStart(2, '0')
-  const year = dateObj.getFullYear()
-
-  return `${year}${month}${day}${hours}${minutes}${seconds}`
-}
-
-const getThumbImageUri = filename => {
-  return `${thumbnailPath}/${thumbnailPrefix}${filename}`
-}
 
 watch(
   route,
@@ -83,7 +64,7 @@ watch(
     <div class="archive-cards" v-if="!isLoading">
         <CardGeneric v-for="post in posts">
           <template #image>
-            <router-link :to="`/post/${post.slug}`"><img :alt="`${post.headline} thumbnail`" :src="getThumbImageUri(post.image)" /></router-link>
+            <router-link :to="`/post/${post.slug}`"><img :alt="`${post.headline} thumbnail`" :src="getThumbImageURI(post.image)" /></router-link>
           </template>
           <template #headline>
             <router-link :to="`/post/${post.slug}`">{{ post.headline }}</router-link>

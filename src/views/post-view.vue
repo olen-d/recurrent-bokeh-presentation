@@ -2,7 +2,7 @@
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
 const imagePath = import.meta.env.VITE_IMAGE_PATH
 
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 import { useRoute } from 'vue-router'
 
@@ -17,11 +17,26 @@ const props = defineProps({
 })
 
 const isLoading = ref(true)
+const isLoadingMostDiscussed = ref(true)
 const post = ref({})
+const linksMostDiscussed = ref({})
 const slugPrev = ref('')
 const slugNext = ref('')
 
 const route = useRoute()
+
+onMounted( async() => {
+  const responseMostDiscussed = await fetch(`${apiBaseUrl}/posts/discussed/before?count=most&limit=6`)
+  const resultMostDiscussed = await responseMostDiscussed.json()
+
+  const { status: statusMostDiscussed } = resultMostDiscussed
+
+  if (statusMostDiscussed === 'success') {
+    const { data: dataMostDiscussed } = resultMostDiscussed
+    linksMostDiscussed.value = dataMostDiscussed
+    isLoadingMostDiscussed.value = false
+  }
+})
 
 watch(
   route,
@@ -88,7 +103,13 @@ watch(
       &nbsp;
     </div>
   </div>
-  <ListLinks></ListLinks>
+  <ListLinks
+    v-if="!isLoadingMostDiscussed"
+    heading="Most Discussed"
+    route="/discussed/before?count=most"
+    :links="linksMostDiscussed"
+  >
+  </ListLinks>
   <ThumbnailBar
     :current-image="post"
     :total-thumbnails=9

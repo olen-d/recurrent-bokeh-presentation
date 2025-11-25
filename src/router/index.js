@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ArchiveView from '@/views/archive-view.vue'
+import discussedView from '@/views/discussed-view.vue'
 import HomeView from '@/views/home-view.vue'
 import PostView from '@/views/post-view.vue'
+import DiscussedView from '@/views/discussed-view.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +31,15 @@ const router = createRouter({
       props: true,
       meta: {
         title: 'Archive'
+      }
+    },
+    {
+      path: '/discussed/:direction?/:dbKey?',
+      name: 'discussed',
+      component: DiscussedView,
+      props: true,
+      meta: {
+        title: 'Discussed'
       }
     },
     {

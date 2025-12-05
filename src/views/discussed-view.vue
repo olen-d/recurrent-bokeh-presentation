@@ -18,6 +18,7 @@ const props = defineProps({
   direction: String,
 })
 
+const countQ = ref('')
 const hasPreviousPage = ref(false)
 const hasNextPage = ref(false)
 const isLoading = ref(true)
@@ -36,6 +37,8 @@ watch(
     const totalThumbnails = route.query?.limit || thumbnailPageSize
     const dbKey = props.dbKey ? `/${props.dbKey}` : ''
     const direction = props.direction || 'before'
+
+    countQ.value = count
 
     try {
       const response = await fetch(`${apiBaseUrl}/posts/discussed/${direction}${dbKey}?count=${count}&limit=${totalThumbnails}`)
@@ -81,10 +84,10 @@ watch(
     </div>
     <div class="archive-pagination">
       <div class="archive-pagination-previous" v-if="hasPreviousPage">
-        <router-link :to="`/discussed/before/${previousKey}`">&laquo; Previous Posts</router-link>
+        <router-link :to="`/discussed/before/${previousKey}?count=${countQ}`">&laquo; Previous Posts</router-link>
       </div>
       <div class="archive-pagination-next" v-if="hasNextPage">
-        <router-link :to="`/discussed/after/${nextKey}`">Next Posts &raquo;</router-link>
+        <router-link :to="`/discussed/after/${nextKey}?count=${countQ}`">Next Posts &raquo;</router-link>
       </div>
     </div>
   </div>

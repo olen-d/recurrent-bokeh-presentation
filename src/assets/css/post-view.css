@@ -5,6 +5,14 @@
   padding-top: 3rem;
 }
 
+.links-wrapper {
+  display: flex;
+  column-gap: 5rem;
+  background: #0a0a0a;
+  margin-top: 6rem;
+  padding: 1rem 5rem;
+}
+
 .arrow-left {
   width: 0;
   height: 0;

@@ -17,8 +17,10 @@ const props = defineProps({
 })
 
 const isLoading = ref(true)
+const isLoadingLeastDiscussed = ref (true)
 const isLoadingMostDiscussed = ref(true)
 const post = ref({})
+const linksLeastDiscussed = ref({})
 const linksMostDiscussed = ref({})
 const slugPrev = ref('')
 const slugNext = ref('')
@@ -26,6 +28,17 @@ const slugNext = ref('')
 const route = useRoute()
 
 onMounted( async() => {
+  const responseLeastDiscussed = await fetch(`${apiBaseUrl}/posts/discussed/before?count=least&limit=6`)
+  const resultLeastDiscussed = await responseLeastDiscussed.json()
+
+  const { status: statusLeastDiscussed } = resultLeastDiscussed
+
+  if (statusLeastDiscussed === 'success') {
+    const { data: dataLeastDiscussed } = resultLeastDiscussed
+    linksLeastDiscussed.value = dataLeastDiscussed
+    isLoadingLeastDiscussed.value = false
+  }
+
   const responseMostDiscussed = await fetch(`${apiBaseUrl}/posts/discussed/before?count=most&limit=6`)
   const resultMostDiscussed = await responseMostDiscussed.json()
 
@@ -103,13 +116,22 @@ watch(
       &nbsp;
     </div>
   </div>
-  <ListLinks
-    v-if="!isLoadingMostDiscussed"
-    heading="Most Discussed"
-    route="/discussed/before?count=most"
-    :links="linksMostDiscussed"
-  >
-  </ListLinks>
+  <div class="links-wrapper">
+    <ListLinks
+      v-if="!isLoadingMostDiscussed"
+      heading="Most Discussed"
+      route="/discussed/before?count=most"
+      :links="linksMostDiscussed"
+    >
+    </ListLinks>
+    <ListLinks
+      v-if="!isLoadingLeastDiscussed"
+      heading="Least Discussed"
+      route="/discussed/before?count=least"
+      :links="linksLeastDiscussed"
+    >
+    </ListLinks>
+  </div>
   <ThumbnailBar
     :current-image="post"
     :total-thumbnails=9

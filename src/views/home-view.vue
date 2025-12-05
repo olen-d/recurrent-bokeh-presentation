@@ -11,9 +11,11 @@ import PostPanel from '@/components/post-panel.vue'
 import ThumbnailBar from '@/components/thumbnail-bar.vue'
 
 const post = ref({})
+const linksLeastDiscussed = ref({})
 const linksMostDiscussed = ref({})
 const slugPrev = ref('')
 const isLoading = ref(true)
+const isLoadingLeastDiscussed = ref (true)
 const isLoadingMostDiscussed = ref(true)
 
 onMounted(async () => {
@@ -47,6 +49,17 @@ onMounted(async () => {
     linksMostDiscussed.value = dataMostDiscussed
     isLoadingMostDiscussed.value = false
   }
+
+  const responseLeastDiscussed = await fetch(`${apiBaseUrl}/posts/discussed/before?count=least&limit=6`)
+  const resultLeastDiscussed = await responseLeastDiscussed.json()
+
+  const { status: statusLeastDiscussed } = resultLeastDiscussed
+
+  if (statusLeastDiscussed === 'success') {
+    const { data: dataLeastDiscussed } = resultLeastDiscussed
+    linksLeastDiscussed.value = dataLeastDiscussed
+    isLoadingLeastDiscussed.value = false
+  }
 })
 </script>
 
@@ -65,16 +78,25 @@ onMounted(async () => {
       &nbsp;
     </div>
   </div>
-  <ListLinks
-    v-if="!isLoadingMostDiscussed"
-    heading="Most Discussed"
-    route="/discussed/before?count=most"
-    :links="linksMostDiscussed"
-  >
-  </ListLinks>
+  <div class="links-wrapper">
+    <ListLinks
+      v-if="!isLoadingMostDiscussed"
+      heading="Most Discussed"
+      route="/discussed/before?count=most"
+      :links="linksMostDiscussed"
+    >
+    </ListLinks>
+    <ListLinks
+      v-if="!isLoadingLeastDiscussed"
+      heading="Least Discussed"
+      route="/discussed/before?count=least"
+      :links="linksLeastDiscussed"
+    >
+    </ListLinks>
+  </div>
   <ThumbnailBar
     :current-image="post"
     :total-thumbnails=9
   >
-  </ThumbnailBar>
+</ThumbnailBar>
 </template>

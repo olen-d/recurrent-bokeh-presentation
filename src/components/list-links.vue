@@ -9,7 +9,7 @@ const props = defineProps({
 
 </script>
 <template>
-  <div class="links-wrapper">
+  <div class="list-links">
     <h2>
       <router-link :to="route">{{ heading }}</router-link>
     </h2>

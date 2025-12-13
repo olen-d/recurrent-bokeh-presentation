@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ArchiveView from '@/views/archive-view.vue'
-import discussedView from '@/views/discussed-view.vue'
+import CategoryView from '@/views/category-view.vue';
+import CategoriesView from '@/views/categories-view.vue'
+import DiscussedView from '@/views/discussed-view.vue'
 import HomeView from '@/views/home-view.vue'
 import PostView from '@/views/post-view.vue'
-import DiscussedView from '@/views/discussed-view.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +33,23 @@ const router = createRouter({
       props: true,
       meta: {
         title: 'Archive'
+      }
+    },
+    {
+      path: '/category/:slug/:direction?/:datetime?',
+      name: 'category',
+      component: CategoryView,
+      props: true,
+      meta: {
+        title: 'Category'
+      }
+    },
+    {
+      path: '/categories',
+      name: 'categories',
+      component: CategoriesView,
+      meta: {
+        title: 'Categoriesls'
       }
     },
     {

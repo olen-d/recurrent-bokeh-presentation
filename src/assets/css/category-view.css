@@ -1,0 +1,46 @@
+.category-view {
+  margin-top: 5rem;
+}
+
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, min(200px));
+  column-gap: 2rem;
+  row-gap: 6rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.category-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 5rem;
+}
+
+.category-pagination a {
+  font-weight: 700;
+  color: #cc6600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.category-pagination a:visited {
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.category-pagination a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+
+.category-pagination a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.category-paginations a:active {
+  color:#ffffff;
+  text-decoration: none;
+}

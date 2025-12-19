@@ -12,3 +12,20 @@
   color: #ffff00;
   text-decoration: none;
 }
+
+.post-categories p {
+  display: inline;
+  text-transform: uppercase;
+}
+
+.post-categories ul {
+  margin-left: 0.25rem;
+  padding-left: 0rem;
+  list-style-type: none;
+  display: inline-flex;
+  text-transform: capitalize;
+}
+
+.post.category ~ .post-category::before {
+  content: ', ';
+}

@@ -28,6 +28,16 @@ const getImageUri = filename => {
     <p>
       {{ post.datetime }}
     </p>
+    <div class="post-categories">
+      <p>
+        Filed Under:
+      </p>
+      <ul>
+        <li class="post-category" v-for="category in post.categories">
+          <router-link :to="`/category/${category.slug}`">{{ category.name }}</router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

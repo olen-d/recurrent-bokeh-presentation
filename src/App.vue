@@ -6,7 +6,8 @@ import './assets/css/app.css'
 
 const navigationMenu = [
   { path: '/archive', label: 'Archive', key: 'archive' },
-  { path: '/categories', label: 'Categories', key: 'categories' }
+  { path: '/categories', label: 'Categories', key: 'categories' },
+  { path: '/characteristics', label: 'Characteristics', key: 'characteristics' }
 ]
 </script>
 

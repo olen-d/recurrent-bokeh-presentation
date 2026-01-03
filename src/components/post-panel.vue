@@ -38,6 +38,11 @@ const getImageUri = filename => {
         </li>
       </ul>
     </div>
+    <div class="post-attributes">
+      <p class="post-attribute" v-for="attribute in post.attributes">
+        <span class="attribute-name">{{ attribute.name }}</span>: <router-link :to="`/characteristic/${encodeURI(attribute.value)}`">{{ attribute.value }}</router-link>
+      </p>
+    </div>
   </div>
 </template>
 

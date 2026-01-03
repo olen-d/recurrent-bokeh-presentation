@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import ArchiveView from '@/views/archive-view.vue'
-import CategoryView from '@/views/category-view.vue';
+import CategoryView from '@/views/category-view.vue'
 import CategoriesView from '@/views/categories-view.vue'
+import CharacteristicView from '@/views/characteristic-view.vue'
+import CharacteristicsView from '@/views/characteristics-view.vue'
 import DiscussedView from '@/views/discussed-view.vue'
 import HomeView from '@/views/home-view.vue'
 import PostView from '@/views/post-view.vue'
@@ -49,9 +51,35 @@ const router = createRouter({
       name: 'categories',
       component: CategoriesView,
       meta: {
-        title: 'Categoriesls'
+        title: 'Categories'
       }
     },
+    {
+      path: '/characteristic/:slug/:direction?/:datetime?',
+      name: 'characteristic',
+      component: CharacteristicView,
+      props: true,
+      meta: {
+        title: 'Characteristic'
+      }
+    },
+    {
+      path: '/characteristics',
+      name: 'characteristics',
+      component: CharacteristicsView,
+      meta: {
+        title: 'Characteristics'
+      }
+    },
+    // {
+    //   path: '/explore/:type',
+    //   name: 'explore',
+    //   component: ExploreView,
+    //   props: true,
+    //   meta: {
+    //     title: 'Explore'
+    //   }
+    // },
     {
       path: '/discussed/:direction?/:dbKey?',
       name: 'discussed',

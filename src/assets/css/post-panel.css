@@ -29,3 +29,8 @@
 .post.category ~ .post-category::before {
   content: ', ';
 }
+
+.attribute-name {
+  font-weight: 700;
+  text-transform: uppercase;
+}

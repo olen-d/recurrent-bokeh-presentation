@@ -1,0 +1,147 @@
+.characteristics-view {
+  margin-top: 8rem;
+  margin-right: 16rem;
+  margin-bottom: 8rem;
+  margin-left: 8rem;
+}
+.characteristic-names {
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.characteristic-values {
+  margin: 1rem 0rem 2rem 0rem;
+  padding: 0rem;
+  display: flex;
+  align-items: last baseline;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  text-transform: none;
+}
+
+/* li a, li a:visited {
+  color: #585858;
+  text-decoration: none;
+} */
+
+.characteristic-classification-5 a,
+.characteristic-classification-5 a:visited {
+  /* color: #cc0000; */
+  color: #ffff00;
+  text-decoration: none;
+}
+
+.characteristic-classification-4 a,
+.characteristic-classification-4 a:visited {
+  /* color: #aa5500; */
+  color: #ffaa00;
+  text-decoration: none;
+}
+
+.characteristic-classification-3 a,
+.characteristic-classification-3 a:visited {
+  /* color: #aaaa00; */
+  /* color: #cccc00; */
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.characteristic-classification-2 a,
+.characteristic-classification-2 a:visited {
+  /* color: #88ff00; */
+  /* color: #228800; */
+  /* color: #226622; */
+  /* color: #aa0088; */
+  color: #bb0000;
+  text-decoration: none;
+}
+
+.characteristic-classification-1 a,
+.characteristic-classification-1 a:visited {
+  /* color: #226622; */
+  color: #585858;
+  text-decoration: none;
+}
+
+.characteristic-classification-5 a:hover,
+.characteristic-classification-5 a:active {
+  /* color: #cc0000; */
+  background: #ffff00;
+  color: #181818;
+  text-decoration: none;
+}
+
+.characteristic-classification-4 a:hover,
+.characteristic-classification-4 a:active {
+  /* color: #aa5500; */
+  background: #ffaa00;
+  color: #181818;
+  text-decoration: none;
+}
+
+.characteristic-classification-3 a:hover,
+.characteristic-classification-3 a:active {
+  /* color: #aaaa00; */
+  /* color: #cccc00; */
+  background: #cc6600;
+  color: #181818;
+  text-decoration: none;
+}
+
+.characteristic-classification-2 a:hover,
+.characteristic-classification-2 a:active {
+  /* color: #88ff00; */
+  /* color: #228800; */
+  /* color: #226622; */
+  /* color: #aa0088; */
+  background: #bb0000;
+  color: #181818;
+  text-decoration: none;
+}
+
+.characteristic-classification-1 a:hover,
+.characteristic-classification-1 a:active {
+  /* color: #226622; */
+  background: #585858;
+  color: #181818;
+  text-decoration: none;
+}
+
+/* .characteristic-values a:hover {
+  background: #585858;
+  color: #181818;
+} */
+
+.characteristic-values a:active {
+  color: #fff;
+}
+
+.characteristic-values li:not(:last-child)::after {
+  content: ', ';
+}
+
+.characteristic-classification-5 {
+  font-size: 2rem;
+}
+
+.characteristic-classification-4 {
+  font-size: 1.75rem;
+}
+
+.characteristic-classification-3 {
+  font-size: 1.5rem;
+}
+
+.characteristic-classification-2 {
+  font-size: 1.25rem;
+}
+
+.characteristic-classification-1 {
+  font-size: 1rem;
+}

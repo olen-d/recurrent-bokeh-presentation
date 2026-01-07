@@ -1,0 +1,105 @@
+.tags-view {
+  margin-top: 8rem;
+  margin-right: 16rem;
+  margin-bottom: 8rem;
+  margin-left: 8rem;
+}
+
+.tag-names {
+  margin: 1rem 0rem 2rem 2rem;
+  padding: 0rem;
+  display: flex;
+  align-items: last baseline;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  text-transform: none;
+}
+
+.tag-classification-5 a,
+.tag-classification-5 a:visited {
+  color: #ffff00;
+  text-decoration: none;
+}
+
+.tag-classification-4 a,
+.tag-classification-4 a:visited {
+  color: #ffaa00;
+  text-decoration: none;
+}
+
+.tag-classification-3 a,
+.tag-classification-3 a:visited {
+  color: #cc6600;
+  text-decoration: none;
+}
+
+.tag-classification-2 a,
+.tag-classification-2 a:visited {
+  color: #bb0000;
+  text-decoration: none;
+}
+
+.tag-classification-1 a,
+.tag-classification-1 a:visited {
+  color: #585858;
+  text-decoration: none;
+}
+
+.tag-classification-5 a:hover,
+.tag-classification-5 a:active {
+  background: #ffff00;
+  color: #181818;
+  text-decoration: none;
+}
+
+.tag-classification-4 a:hover,
+.tag-classification-4 a:active {
+  background: #ffaa00;
+  color: #181818;
+  text-decoration: none;
+}
+
+.tag-classification-3 a:hover,
+.tag-classification-3 a:active {
+  background: #cc6600;
+  color: #181818;
+  text-decoration: none;
+}
+
+.tag-classification-2 a:hover,
+.tag-classification-2 a:active {
+  background: #bb0000;
+  color: #181818;
+  text-decoration: none;
+}
+
+.tag-classification-1 a:hover,
+.tag-classification-1 a:active {
+  background: #585858;
+  color: #181818;
+  text-decoration: none;
+}
+
+.tag-classification-5 {
+  font-size: 2rem;
+}
+
+.tag-classification-4 {
+  font-size: 1.75rem;
+}
+
+.tag-classification-3 {
+  font-size: 1.5rem;
+}
+
+.tag-classification-2 {
+  font-size: 1.25rem;
+}
+
+.tag-classification-1 {
+  font-size: 1rem;
+}

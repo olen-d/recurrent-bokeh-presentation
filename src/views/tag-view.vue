@@ -9,7 +9,7 @@ import { useRoute } from 'vue-router'
 import { formatDateURI } from '@/composables/useDateURI'
 import { getThumbImageURI } from "@/composables/useThumbnailURI"
 
-import '../assets/css/characteristic-view.css'
+import '../assets/css/tag-view.css'
 
 import CardGeneric from "@/components/card-generic.vue"
 
@@ -37,7 +37,7 @@ watch(
     const direction = props.direction || 'before'
 
     try {
-      const response = await fetch(`${apiBaseUrl}/posts/attribute/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
+      const response = await fetch(`${apiBaseUrl}/posts/tag/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
       const result = await response.json()
 
       const { status } = result
@@ -61,8 +61,8 @@ watch(
 </script>
 
 <template>
-  <div class="characteristic-view">
-    <div class="characteristic-cards" v-if="!isLoading">
+  <div class="tag-view">
+    <div class="tag-cards" v-if="!isLoading">
         <CardGeneric v-for="post in posts">
           <template #image>
             <router-link :to="`/post/${post.slug}`"><img :alt="`${post.headline} thumbnail`" :src="getThumbImageURI(post.image)" /></router-link>
@@ -78,12 +78,12 @@ watch(
           </template>
         </CardGeneric>
     </div>
-    <div class="characteristic-pagination">
-      <div class="characteristic-pagination-previous" v-if="hasPreviousPage">
-        <router-link :to="`/characteristic/${slug}/before/${previousDatetime}`">&laquo; Previous Posts</router-link>
+    <div class="tag-pagination">
+      <div class="tag-pagination-previous" v-if="hasPreviousPage">
+        <router-link :to="`/tag/${slug}/before/${previousDatetime}`">&laquo; Previous Posts</router-link>
       </div>
-      <div class="characteristic-pagination-next" v-if="hasNextPage">
-        <router-link :to="`/characteristic/${slug}/after/${nextDatetime}`">Next Posts &raquo;</router-link>
+      <div class="tag-pagination-next" v-if="hasNextPage">
+        <router-link :to="`/tag/${slug}/after/${nextDatetime}`">Next Posts &raquo;</router-link>
       </div>
     </div>
   </div>

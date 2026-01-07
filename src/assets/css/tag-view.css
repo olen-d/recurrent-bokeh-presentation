@@ -1,8 +1,8 @@
-.characteristic-view {
+.tag-view {
   margin-top: 5rem;
 }
 
-.characteristic-cards {
+.tag-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, min(200px));
   column-gap: 2rem;
@@ -11,36 +11,36 @@
   justify-content: center;
 }
 
-.characteristic-pagination {
+.tag-pagination {
   display: flex;
   justify-content: space-between;
   margin: 3rem 5rem;
 }
 
-.characteristic-pagination a {
+.tag-pagination a {
   font-weight: 700;
   color: #cc6600;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.characteristic-pagination a:visited {
+.tag-pagination a:visited {
   color: #cc6600;
   text-decoration: none;
 }
 
-.characteristic-pagination a:focus {
+.tag-pagination a:focus {
   color: #ffffff;
   text-decoration: none;
   outline: none;
 }
 
-.characteristic-pagination a:hover {
+.tag-pagination a:hover {
   color: #ffffff;
   text-decoration: none;
 }
 
-.characteristic-paginations a:active {
+.tag-paginations a:active {
   color:#ffffff;
   text-decoration: none;
 }

@@ -8,6 +8,8 @@ import CharacteristicsView from '@/views/characteristics-view.vue'
 import DiscussedView from '@/views/discussed-view.vue'
 import HomeView from '@/views/home-view.vue'
 import PostView from '@/views/post-view.vue'
+import TagView from '@/views/tag-view.vue'
+import TagsView from '@/views/tags-view.vue'
 
 
 const router = createRouter({
@@ -71,15 +73,6 @@ const router = createRouter({
         title: 'Characteristics'
       }
     },
-    // {
-    //   path: '/explore/:type',
-    //   name: 'explore',
-    //   component: ExploreView,
-    //   props: true,
-    //   meta: {
-    //     title: 'Explore'
-    //   }
-    // },
     {
       path: '/discussed/:direction?/:dbKey?',
       name: 'discussed',
@@ -97,7 +90,24 @@ const router = createRouter({
       meta: {
         title: 'Post'
       }
-    }
+    },
+    {
+      path: '/tag/:slug/:direction?/:datetime?',
+      name: 'tag',
+      component: TagView,
+      props: true,
+      meta: {
+        title: 'Tag'
+      }
+    },
+    {
+      path: '/tags',
+      name: 'tags',
+      component: TagsView,
+      meta: {
+        title: 'Tags'
+      }
+    },
   ],
 })
 

@@ -34,3 +34,20 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+
+.post-tags p {
+  display: inline;
+  text-transform: uppercase;
+}
+
+.post-tags ul {
+  margin-left: 0.25rem;
+  padding-left: 0rem;
+  list-style-type: none;
+  display: inline-flex;
+  column-gap: 0.5rem;
+}
+
+.post-tags li:not(:last-child)::after {
+  content: ', ';
+}

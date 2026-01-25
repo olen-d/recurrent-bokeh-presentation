@@ -1,3 +1,11 @@
+export function dateObjFromMySQL(dateStrMySQL) {
+  // Expected input: YYYY-MM-DD HH:MM:SS
+  const dateStr = dateStrMySQL.replace(' ', 'T')
+  const dateObj = new Date(dateStr)
+
+  return dateObj
+}
+
 export function formatDateURI(dateObj) {
   const dayRaw = dateObj.getDate()
   const hoursRaw = dateObj.getHours()

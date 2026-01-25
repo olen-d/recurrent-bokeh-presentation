@@ -4,16 +4,16 @@ h2 {
   text-transform: uppercase;
 }
 
-a, a:visited {
+.list-links a, .list-links a:visited {
   color: #383838;
   text-decoration: none;
 }
 
-a:hover {
+.list-links a:hover {
   color: #fff;
 }
 
-a:active {
+.list-links a:active {
   color: #fff;
 }
 

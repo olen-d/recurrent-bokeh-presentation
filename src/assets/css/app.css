@@ -1,6 +1,6 @@
 body {
   background: #181818;
-  color: #ddddaa;
+  color: #666;
   font-family: Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
@@ -9,6 +9,19 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Tahoma, Geneva, sans-serif;
+}
+
+a, a:visited {
+  color: #864c14;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+a:active {
+  color: #fff;
 }
 
 .app-header {

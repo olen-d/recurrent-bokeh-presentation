@@ -1,8 +1,47 @@
 .post-view {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  margin: 0rem 1.5rem 0rem 1.5rem;
   padding-top: 3rem;
+}
+
+.post-view-navigation-container {
+  display: flex;
+  gap: 5rem;
+}
+
+.post-view-item-previous {
+  justify-content: left;
+}
+
+.post-view-item-next {
+  justify-content: right;
+}
+
+/* Breakpoints borrowed from Bootstrap 5.0 */
+@media only screen and (min-width: 576px) {
+  .post-view {
+    margin: 0rem 3rem 0rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .post-view {
+    margin: 0rem 4rem 0rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .post-view {
+    margin: 0rem 5rem 0rem 5rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .post-view {
+    margin: 0rem 6rem 0rem 6rem;
+  }
+  .post-view-item-next {
+    grid-column: 8;
+  }
 }
 
 .links-wrapper {
@@ -11,6 +50,32 @@
   background: #0a0a0a;
   margin-top: 6rem;
   padding: 1rem 5rem;
+}
+
+.chevron-left {
+  --s: 0.5rem; /* control the shape (can be percentage) */
+
+  height: 2rem;
+  aspect-ratio: 3/5;
+  clip-path: polygon(100% 0,calc(100% - var(--s)) 0,0 50%,calc(100% - var(--s)) 100%,100% 100%,var(--s) 50%);
+  background: #444;
+}
+
+.chevron-left:hover {
+  background: #fff;
+}
+
+.chevron-right {
+  --s: 0.5rem; /* control the shape (can be percentage) */
+
+  height: 2rem;
+  aspect-ratio: 3/5;
+  clip-path: polygon(0 0,var(--s) 0,100% 50%,var(--s) 100%,0 100%,calc(100% - var(--s)) 50%);
+  background: #444;
+}
+
+.chevron-right:hover {
+  background: #fff;
 }
 
 .arrow-left {

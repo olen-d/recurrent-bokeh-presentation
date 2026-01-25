@@ -100,8 +100,17 @@ watch(
 </script>
 <template>
   <div class="post-view">
-    <div v-if="slugPrev" class="previous-image">
-      <router-link :to="`/post/${slugPrev}`"><div class="arrow-left"></div></router-link>
+    <div class="post-view-navigation-container">
+      <div class="post-view-item-previous">
+        <div v-if="slugPrev" class="previous-image">
+          <router-link :to="`/post/${slugPrev}`"><div class="chevron-left"></div></router-link>
+        </div>
+      </div>
+      <div class="post-view-item-next">
+        <div v-if="slugNext" class="next-image">
+          <router-link :to="`/post/${slugNext}`"><div class="chevron-right"></div></router-link>
+        </div>
+      </div>
     </div>
     <PostPanel
       v-if="!isLoading"
@@ -109,12 +118,6 @@ watch(
       :post="post"
     >
     </PostPanel>
-    <div v-if="slugNext" class="next-image">
-      <router-link :to="`/post/${slugNext}`"><div class="arrow-right"></div></router-link>
-    </div>
-    <div v-if="!slugNext" class="next-image">
-      &nbsp;
-    </div>
   </div>
   <div class="links-wrapper">
     <ListLinks

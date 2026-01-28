@@ -16,8 +16,21 @@
   justify-content: right;
 }
 
+.links-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1/5rem;
+  padding-left: 1.5rem;
+}
+
 /* Breakpoints borrowed from Bootstrap 5.0 */
 @media only screen and (min-width: 576px) {
+  .links-wrapper {
+    flex-direction: row;
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+
   .post-view {
     margin: 0rem 3rem 0rem 3rem;
   }
@@ -42,14 +55,6 @@
   .post-view-item-next {
     grid-column: 8;
   }
-}
-
-.links-wrapper {
-  display: flex;
-  column-gap: 5rem;
-  background: #0a0a0a;
-  margin-top: 6rem;
-  padding: 1rem 5rem;
 }
 
 .chevron-left {

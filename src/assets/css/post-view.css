@@ -17,18 +17,19 @@
 }
 
 .links-wrapper {
+  background: #0a0a0a;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
-  padding-right: 1/5rem;
-  padding-left: 1.5rem;
+  padding: 3rem 1.5rem 3rem 1.5rem;
 }
 
 /* Breakpoints borrowed from Bootstrap 5.0 */
 @media only screen and (min-width: 576px) {
   .links-wrapper {
     flex-direction: row;
-    padding-right: 5rem;
-    padding-left: 5rem;
+    padding: 3rem 5rem 3rem 5rem;
+    column-gap: 5rem;
   }
 
   .post-view {

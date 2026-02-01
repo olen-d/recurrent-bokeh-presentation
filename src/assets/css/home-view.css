@@ -7,22 +7,36 @@
   padding-top: 3rem;
 }
 
-.odd-alternate-wrapper {
-  background: #0a0a0a;
-  /* background: #f00; */
+.odd-alternate-wrapper, .even-alternate-wrapper {
   margin-top: 8rem;
   padding: 5rem 1.5rem 5rem 1.5rem;
 }
 
-.odd-alternate-heading p {
+.odd-alternate-wrapper {
+  background: #0a0a0a;
+}
+
+.even-alternate-wrapper {
+  margin-top: 0rem;
+  background: #383838;
+}
+
+.odd-alternate-heading p, .even-alternate-heading p {
   margin: 0rem 0rem 1rem -1.5rem;
   font-size: 1.5rem;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.odd-alternate-heading p {
   color: #1c1c1c;
 }
 
-.odd-alternate-content {
+.even-alternate-heading p {
+  color: #414141;
+}
+
+.odd-alternate-content, .even-alternate-content {
   /* display: flex;
   flex-wrap: wrap;
   column-gap: 2rem; */
@@ -46,17 +60,17 @@
     margin: 0rem 3rem 0rem 3rem;
   }
 
-  .odd-alternate-wrapper {
+  .odd-alternate-wrapper, .even-alternate-wrapper {
     padding-right: 3rem;
     padding-left: 3rem;
   }
 
-  .odd-alternate-heading p {
+  .odd-alternate-heading p, .even-alternate-heading p {
     margin-left: -3rem;
     font-size: 2rem;
   }
 
-  .odd-alternate-content {
+  .odd-alternate-content, .even-alternate-content {
     margin-top: -1.7rem;
   }
 }
@@ -66,17 +80,17 @@
     margin: 0rem 4rem 0rem 4rem;
   }
 
-  .odd-alternate-wrapper {
+  .odd-alternate-wrapper, .even-alternate-wrapper {
     padding-right: 4rem;
     padding-left: 4rem;
   }
 
-  .odd-alternate-heading p {
+  .odd-alternate-heading p, .even-alternate-heading p {
     font-size: 2.5rem;
     margin-left: -4rem;
   }
 
-  .odd-alternate-content {
+  .odd-alternate-content, .even-alternate-content {
     margin-top: -1.8rem;
   }
 }
@@ -86,17 +100,17 @@
     margin: 0rem 5rem 0rem 5rem;
   }
 
-  .odd-alternate-wrapper {
+  .odd-alternate-wrapper, .even-alternate-wrapper {
     padding-right: 5rem;
     padding-left: 5rem;
   }
 
-  .odd-alternate-heading p {
+  .odd-alternate-heading p, .even-alternate-heading p {
     font-size: 3rem;
     margin-left: -5rem;
   }
 
-  .odd-alternate-content {
+  .odd-alternate-content, .even-alternate-content {
     margin-top: -2.1rem;
   }
 }
@@ -106,17 +120,17 @@
     margin: 0rem 6rem 0rem 6rem;
   }
 
-  .odd-alternate-wrapper {
+  .odd-alternate-wrapper, .even-alternate-wrapper {
     padding-right: 6rem;
     padding-left: 6rem;
   }
 
-  .odd-alternate-heading p {
+  .odd-alternate-heading p, .even-alternate-heading p {
     font-size: 3.5rem;
     margin-left: -6rem;
   }
 
-  .odd-alternate-content {
+  .odd-alternate-content, .even-alternate-content {
     margin-top: -2.2rem;
   }
 }

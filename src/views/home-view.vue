@@ -5,6 +5,7 @@ const imagePath = import.meta.env.VITE_IMAGE_PATH
 import { computed, onMounted, ref } from 'vue'
 
 import { dateObjFromMySQL } from '@/composables/useDateURI'
+import { formatDateURI } from '@/composables/useDateURI'
 import { getThumbImageURI } from "@/composables/useThumbnailURI"
 
 import '../assets/css/home-view.css'
@@ -22,8 +23,11 @@ const isLoading = ref(true)
 const isLoadingLeastDiscussed = ref (true)
 const isLoadingMostDiscussed = ref(true)
 const isLoadingPostsFavorite = ref(true)
+const isLoadingPostsRecent = ref(true)
 const postsFavoriteAll = ref([])
+const postsRecentAll = ref([])
 const oddAlternateWidthZero = ref()
+const evenAlternateWidthZero = ref()
 
 const thumbDateTimeFormatted = dateTimeMySQL => {
   const thumbDateObj = dateObjFromMySQL(dateTimeMySQL)
@@ -44,7 +48,14 @@ const oddAlternateContentObserver = new ResizeObserver(entries => {
   oddAlternateWidthZero.value = inlineSize;
 })
 
+const evenAlternateContentObserver = new ResizeObserver(entries => {
+  const [{ contentBoxSize: [ {inlineSize }] }] = entries
+  evenAlternateWidthZero.value = inlineSize;
+})
+
 onMounted(async () => {
+  const datetime = encodeURI(formatDateURI(new Date()))
+
   const response = await fetch(`${apiBaseUrl}/post`)
   const result = await response.json()
 
@@ -98,7 +109,25 @@ onMounted(async () => {
     isLoadingPostsFavorite.value = false
   }
 
+  try {
+    const responsePostsRecent = await fetch(`${apiBaseUrl}/posts/before/${datetime}?limit=14`)
+    const resultPostsRecent = await responsePostsRecent.json()
+
+    const { status: statusPostsRecent } = resultPostsRecent
+
+    if (statusPostsRecent === 'success') {
+      const { data: dataPostsRecent } = resultPostsRecent
+
+      postsRecentAll.value = dataPostsRecent
+      isLoadingPostsRecent.value = false
+    }
+  } catch (error) {
+    // TODO return an intelligent error
+    console.log(error)
+  }
+
   oddAlternateContentObserver.observe(document.getElementsByClassName('odd-alternate-content')[0])
+  evenAlternateContentObserver.observe(document.getElementsByClassName('even-alternate-content')[0])
 })
 
 const postsFavoriteSliced = computed(() => {
@@ -109,6 +138,17 @@ const postsFavoriteSliced = computed(() => {
   const spaceNeeded = maxThumbnails * 200 + spaceBetween
   const totalThumbnails = spaceNeeded > totalWidth ? maxThumbnails - 1 : maxThumbnails
   const sliced = postsFavoriteAll.value.slice(0, totalThumbnails * rows)
+  return sliced
+})
+
+const postsRecentSliced = computed(() => {
+  const rows = 2
+  const totalWidth = evenAlternateWidthZero.value
+  const maxThumbnails = Math.floor(evenAlternateWidthZero.value / 200)
+  const spaceBetween = (maxThumbnails - 1) * 32
+  const spaceNeeded = maxThumbnails * 200 + spaceBetween
+  const totalThumbnails = spaceNeeded > totalWidth ? maxThumbnails - 1 : maxThumbnails
+  const sliced = postsRecentAll.value.slice(0, totalThumbnails * rows)
   return sliced
 })
 
@@ -136,7 +176,7 @@ const postsFavoriteSliced = computed(() => {
       </p>
     </div>
     <div class="odd-alternate-content">
-      <CardGeneric v-for="post in postsFavoriteSliced" type="low-contrast" density="compressed">
+      <CardGeneric v-for="post in postsFavoriteSliced" type="low-contrast-odd" density="compressed">
         <template #image>
           <router-link :to="`/post/${post.slug}`"><img :alt="`${post.headline} thumbnail`" :src="getThumbImageURI(post.image)" /></router-link>
         </template>
@@ -151,9 +191,28 @@ const postsFavoriteSliced = computed(() => {
         </template>
       </CardGeneric>
     </div>
-
-    <div>
-
+  </div>
+  <div class="even-alternate-wrapper">
+    <div class="even-alternate-heading">
+      <p>
+        Recent Photographs
+      </p>
+    </div>
+    <div class="even-alternate-content">
+      <CardGeneric v-for="post in postsRecentSliced" type="low-contrast-even" density="compressed">
+        <template #image>
+          <router-link :to="`/post/${post.slug}`"><img :alt="`${post.headline} thumbnail`" :src="getThumbImageURI(post.image)" /></router-link>
+        </template>
+        <template #headline>
+          <router-link :to="`/post/${post.slug}`">{{ post.headline }}</router-link>
+        </template>
+        <template #body>
+          {{ post.body }} 
+        </template>
+        <template #date>
+          {{ thumbDateTimeFormatted(post.datetime) }}
+        </template>
+      </CardGeneric>
     </div>
   </div>
   <!-- <div class="links-wrapper">
@@ -172,9 +231,9 @@ const postsFavoriteSliced = computed(() => {
     >
     </ListLinks>
   </div> -->
-  <ThumbnailBar
+  <!-- <ThumbnailBar
     :current-image="post"
     :total-thumbnails=9
   >
-</ThumbnailBar>
+</ThumbnailBar> -->
 </template>

@@ -3,11 +3,13 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
 const thumbnailPageSize = import.meta.env.VITE_THUMBNAIL_PAGE_SIZE
 
 
-import { ref, watch } from "vue"
+import { ref, watch } from 'vue'
 
 import { useRoute } from 'vue-router'
+
 import { formatDateURI } from '@/composables/useDateURI'
-import { getThumbImageURI } from "@/composables/useThumbnailURI"
+import { getThumbImageURI } from '@/composables/useThumbnailURI'
+import { titleCase } from '@/composables/useStringFormat'
 
 import '../assets/css/category-view.css'
 
@@ -36,9 +38,16 @@ watch(
     const datetime = props.datetime || encodeURI(formatDateURI(new Date()))
     const direction = props.direction || 'before'
 
+
+
     try {
       const response = await fetch(`${apiBaseUrl}/posts/category/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
       const result = await response.json()
+
+      // TODO: Update the API to return the category name and pull from that...
+      const categorySlugRegex = /-/gi
+      const categoryStripDashes = props.slug.replace(categorySlugRegex, ' ')
+      const categoryName = titleCase(categoryStripDashes)
 
       const { status } = result
 
@@ -50,6 +59,7 @@ watch(
         nextDatetime.value = hnp ? result.pagination.nextDatetime : ''
         posts.value = data
         isLoading.value = false
+        document.title += ` / ${categoryName}`
       }
     } catch (error) {
       // TODO return an intelligent error

@@ -6,8 +6,10 @@ const thumbnailPageSize = import.meta.env.VITE_THUMBNAIL_PAGE_SIZE
 import { ref, watch } from "vue"
 
 import { useRoute } from 'vue-router'
+
 import { formatDateURI } from '@/composables/useDateURI'
 import { getThumbImageURI } from "@/composables/useThumbnailURI"
+import { titleCase } from '@/composables/useStringFormat'
 
 import '../assets/css/tag-view.css'
 
@@ -36,6 +38,12 @@ watch(
     const datetime = props.datetime || encodeURI(formatDateURI(new Date()))
     const direction = props.direction || 'before'
 
+    // TODO: Update the API to return the tag name and pull from that...
+    const regex = /_/gi
+    const tagSpaces = props.slug.replace(regex, ' ')
+    const tagTitle = tagSpaces.toUpperCase() === tagSpaces ? tagSpaces : titleCase(tagSpaces)
+
+    document.title += ` / ${tagTitle}`
     try {
       const response = await fetch(`${apiBaseUrl}/posts/tag/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
       const result = await response.json()

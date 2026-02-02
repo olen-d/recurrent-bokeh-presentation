@@ -40,6 +40,9 @@ watch(
       const response = await fetch(`${apiBaseUrl}/posts/attribute/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
       const result = await response.json()
 
+      // TODO: Update the API to return the category name and pull from that...
+      document.title += ` / ${decodeURI(props.slug)}`
+
       const { status } = result
 
       if (status === 'success') {

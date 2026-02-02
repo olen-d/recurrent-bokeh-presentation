@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+const siteName = import.meta.env.VITE_SITE_NAME
+
 import ArchiveView from '@/views/archive-view.vue'
 import CategoryView from '@/views/category-view.vue'
 import CategoriesView from '@/views/categories-view.vue'
@@ -108,6 +110,10 @@ const router = createRouter({
       }
     },
   ],
+})
+
+router.afterEach((to, from) => {
+  document.title = siteName + ' / ' + to.meta.title || siteName + 'Default'
 })
 
 export default router

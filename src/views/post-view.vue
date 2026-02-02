@@ -6,6 +6,8 @@ import { onMounted, ref, watch } from 'vue'
 
 import { useRoute } from 'vue-router'
 
+import { titleCase } from '@/composables/useStringFormat'
+
 import '../assets/css/post-view.css'
 
 import ListLinks from '@/components/list-links.vue'
@@ -65,7 +67,10 @@ watch(
         const { data } = result
         post.value = data
 
-        const { datetime } = data
+        const { datetime, headline } = data
+
+        document.title += ` / ${titleCase(headline)}`
+
         const datetimeEncoded = encodeURIComponent(datetime)
 
         const responsePrevious = await fetch(`${apiBaseUrl}/posts/previous/${datetimeEncoded}`)

@@ -44,21 +44,18 @@ watch(
       const response = await fetch(`${apiBaseUrl}/posts/category/${props.slug}/${direction}/${datetime}?limit=${thumbnailPageSize}`)
       const result = await response.json()
 
-      // TODO: Update the API to return the category name and pull from that...
-      const categorySlugRegex = /-/gi
-      const categoryStripDashes = props.slug.replace(categorySlugRegex, ' ')
-      const categoryName = titleCase(categoryStripDashes)
-
       const { status } = result
 
       if (status === 'success') {
-        const { data, pagination: { hasPreviousPage: hpp, hasNextPage: hnp }, } = result
+        const { data, pagination: { hasPreviousPage: hpp, hasNextPage: hnp }, meta: { 'cat_name': catName }, } = result
         hasPreviousPage.value = hpp
         hasNextPage.value = hnp
         previousDatetime.value = hpp ? result.pagination.previousDatetime : ''
         nextDatetime.value = hnp ? result.pagination.nextDatetime : ''
         posts.value = data
         isLoading.value = false
+
+        const categoryName = titleCase(catName)
         document.title += ` / ${categoryName}`
       }
     } catch (error) {

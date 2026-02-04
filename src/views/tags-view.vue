@@ -12,7 +12,7 @@ const tagsSorted = ref([])
 const classes = ref(5)
 const classification = ref('logrithmic')
 const isLoading = ref(true)
-const totalTags = ref(50)
+const totalTags = ref(100)
 
 const route = useRoute()
 

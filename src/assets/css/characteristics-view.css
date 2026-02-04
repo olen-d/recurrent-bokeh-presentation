@@ -1,8 +1,7 @@
 .characteristics-view {
-  margin-top: 8rem;
-  margin-right: 16rem;
-  margin-bottom: 8rem;
-  margin-left: 8rem;
+  margin: 0rem 1.5rem 0rem 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
 }
 
 .characteristic-names {
@@ -28,53 +27,63 @@
   text-transform: none;
 }
 
-/* li a, li a:visited {
-  color: #585858;
-  text-decoration: none;
-} */
+/* Breakpoints borrowed from Bootstrap 5.0 */
+@media only screen and (min-width: 576px) {
+  .characteristics-view {
+    margin: 0rem 3rem 0rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .characteristics-view{
+    margin: 0rem 4rem 0rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .characteristics-view {
+    margin: 0rem 5rem 0rem 5rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .characteristics-view {
+    margin: 0rem 6rem 0rem 6rem;
+  }
+}
 
 .characteristic-classification-5 a,
 .characteristic-classification-5 a:visited {
-  /* color: #cc0000; */
   color: #ffff00;
   text-decoration: none;
 }
 
 .characteristic-classification-4 a,
 .characteristic-classification-4 a:visited {
-  /* color: #aa5500; */
   color: #ffaa00;
   text-decoration: none;
 }
 
 .characteristic-classification-3 a,
 .characteristic-classification-3 a:visited {
-  /* color: #aaaa00; */
-  /* color: #cccc00; */
   color: #cc6600;
   text-decoration: none;
 }
 
 .characteristic-classification-2 a,
 .characteristic-classification-2 a:visited {
-  /* color: #88ff00; */
-  /* color: #228800; */
-  /* color: #226622; */
-  /* color: #aa0088; */
   color: #bb0000;
   text-decoration: none;
 }
 
 .characteristic-classification-1 a,
 .characteristic-classification-1 a:visited {
-  /* color: #226622; */
   color: #585858;
   text-decoration: none;
 }
 
 .characteristic-classification-5 a:hover,
 .characteristic-classification-5 a:active {
-  /* color: #cc0000; */
   background: #ffff00;
   color: #181818;
   text-decoration: none;
@@ -82,7 +91,6 @@
 
 .characteristic-classification-4 a:hover,
 .characteristic-classification-4 a:active {
-  /* color: #aa5500; */
   background: #ffaa00;
   color: #181818;
   text-decoration: none;
@@ -90,8 +98,6 @@
 
 .characteristic-classification-3 a:hover,
 .characteristic-classification-3 a:active {
-  /* color: #aaaa00; */
-  /* color: #cccc00; */
   background: #cc6600;
   color: #181818;
   text-decoration: none;
@@ -99,10 +105,6 @@
 
 .characteristic-classification-2 a:hover,
 .characteristic-classification-2 a:active {
-  /* color: #88ff00; */
-  /* color: #228800; */
-  /* color: #226622; */
-  /* color: #aa0088; */
   background: #bb0000;
   color: #181818;
   text-decoration: none;
@@ -110,16 +112,10 @@
 
 .characteristic-classification-1 a:hover,
 .characteristic-classification-1 a:active {
-  /* color: #226622; */
   background: #585858;
   color: #181818;
   text-decoration: none;
 }
-
-/* .characteristic-values a:hover {
-  background: #585858;
-  color: #181818;
-} */
 
 .characteristic-values a:active {
   color: #fff;

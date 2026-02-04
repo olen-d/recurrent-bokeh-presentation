@@ -1,8 +1,7 @@
 .tags-view {
-  margin-top: 8rem;
-  margin-right: 16rem;
-  margin-bottom: 8rem;
-  margin-left: 8rem;
+  margin: 0rem 1.5rem 0rem 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
 }
 
 .tag-names {
@@ -17,6 +16,31 @@
   font-weight: 400;
   list-style: none;
   text-transform: none;
+}
+
+/* Breakpoints borrowed from Bootstrap 5.0 */
+@media only screen and (min-width: 576px) {
+  .tags-view {
+    margin: 0rem 3rem 0rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .tags-view{
+    margin: 0rem 4rem 0rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .tags-view {
+    margin: 0rem 5rem 0rem 5rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .tags-view {
+    margin: 0rem 6rem 0rem 6rem;
+  }
 }
 
 .tag-classification-5 a,

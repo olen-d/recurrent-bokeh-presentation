@@ -1,0 +1,49 @@
+.panel-generic {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, min(200px));
+  column-gap: 2rem;
+  row-gap: 0rem;
+  align-items: stretch;
+  justify-content: center;
+  justify-items: start;
+  padding-bottom: 4rem;
+}
+
+.panel-generic-title-wrapper {
+  grid-column: 1 / -1;
+}
+
+.panel-generic-title h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.panel-generic-title-density-compressed h2 {
+  margin-bottom: 1rem;
+} 
+
+.panel-generic-title-density-default h2 {
+  margin-bottom: 2rem;
+}
+
+.panel-generic-title-default a {
+  color: #cc6600;
+}
+
+.panel-generic-title-default a:visited {
+  color: #cc6600;
+}
+
+.panel-generic-title-default a:focus {
+  color: #ffffff;
+}
+
+.panel-generic-title-default a:hover {
+  color: #ffffff;
+}
+
+.panel-generic-title-default a:active {
+  color:#ffffff;
+}

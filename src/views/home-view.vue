@@ -4,7 +4,7 @@ const imagePath = import.meta.env.VITE_IMAGE_PATH
 
 import { computed, onMounted, ref } from 'vue'
 
-import { dateObjFromMySQL } from '@/composables/useDateURI'
+import { formatDateYearMonthDay } from '@/composables/useDateURI'
 import { formatDateURI } from '@/composables/useDateURI'
 import { getThumbImageURI } from "@/composables/useThumbnailURI"
 
@@ -29,19 +29,7 @@ const postsRecentAll = ref([])
 const oddAlternateWidthZero = ref()
 const evenAlternateWidthZero = ref()
 
-const thumbDateTimeFormatted = dateTimeMySQL => {
-  const thumbDateObj = dateObjFromMySQL(dateTimeMySQL)
-  const thumbDateFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
 
-  const thumbDateFormatter = new Intl.DateTimeFormat('en-US', thumbDateFormatOptions)
-  const thumbDateFormatted = thumbDateFormatter.format(thumbDateObj)
-
-  return thumbDateFormatted
-}
 
 const oddAlternateContentObserver = new ResizeObserver(entries => {
   const [{ contentBoxSize: [ {inlineSize }] }] = entries
@@ -187,7 +175,7 @@ const postsRecentSliced = computed(() => {
           {{ post.body }}
         </template>
         <template #date>
-          {{ thumbDateTimeFormatted(post.datetime) }}
+          {{ formatDateYearMonthDay(post.datetime) }}
         </template>
       </CardGeneric>
     </div>
@@ -210,7 +198,7 @@ const postsRecentSliced = computed(() => {
           {{ post.body }} 
         </template>
         <template #date>
-          {{ thumbDateTimeFormatted(post.datetime) }}
+          {{ formatDateYearMonthDay(post.datetime) }}
         </template>
       </CardGeneric>
     </div>

@@ -62,6 +62,5 @@ const categoriesSliced = computed(() => {
         </template>
       </PanelGeneric>
     </div>
-    <pre>{{ categoriesSliced }}</pre>
   </div>
 </template>
